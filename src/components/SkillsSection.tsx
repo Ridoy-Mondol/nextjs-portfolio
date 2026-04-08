@@ -99,7 +99,7 @@ const skillCategories = [
       { name: "Git & GitHub", level: 92 },
       { name: "GitHub Actions", level: 85 },
       { name: "CI/CD", level: 83 },
-      { name: "Vercel / Deploy", level: 90 },
+      { name: "Vercel / Deployment", level: 90 },
       { name: "Docker", level: 80 },
     ],
   },
