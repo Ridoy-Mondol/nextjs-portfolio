@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ahatashamul — Full-Stack Developer",
   description:
-    "A full-stack developer from Bangladesh building AI-powered web apps, SaaS platforms, and dashboards with Next.js, React, and Node.js.",
+    "Md Ahatashamul Islam Mondol — full-stack developer from Bangladesh specializing in AI-powered web apps, SaaS platforms, and dashboards with Next.js, React, and Node.js.",
   applicationName: "Ahatashamul Portfolio",
   authors: [
     {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ahatashamul Portfolio",
     description:
-      "A full-stack developer portfolio showcasing AI-powered web apps, SaaS platforms, and dashboards built with Next.js and React.",
+      "Md Ahatashamul Islam Mondol — full-stack developer from Bangladesh specializing in AI-powered web apps, SaaS platforms, and dashboards with Next.js, React, and Node.js.",
     type: "website",
     locale: "en_US",
     siteName: "Ahatashamul Portfolio",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ahatashamul — Full-Stack Developer",
     description:
-      "A full-stack developer portfolio showcasing AI-powered web apps, SaaS platforms, and dashboards built with Next.js and React.",
+      "Md Ahatashamul Islam Mondol — full-stack developer from Bangladesh specializing in AI-powered web apps, SaaS platforms, and dashboards with Next.js, React, and Node.js.",
   },
 };
 
