@@ -15,10 +15,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = projects.find((p) => p.id === slug);
   if (!project) return {};
+
   return {
     title: `${project.name} — Portfolio | Ahatashamul`,
     description: project.description,
-    icons: [{ rel: "icon", url: project.thumbnail }],
     openGraph: {
       title: `${project.name} — Portfolio | Ahatashamul`,
       description: project.description,

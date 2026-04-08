@@ -47,7 +47,6 @@ export const metadata: Metadata = {
     description:
       "A full-stack developer portfolio showcasing AI-powered web apps, SaaS platforms, and dashboards built with Next.js and React.",
   },
-  icons: [{ rel: "icon", url: "/images/my-img.jpeg" }],
 };
 
 import Navbar from "@/components/Navbar";
