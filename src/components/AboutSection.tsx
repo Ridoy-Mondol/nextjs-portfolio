@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 
-// ── Animated counter ──────────────────────────────────────────────────────────
-function useCounter(target: number, duration = 2000, started: boolean) {
+// ── Smooth animated counter ───────────────────────────────────────────────────
+function useCounter(target: number, duration = 2400, started: boolean) {
   const [count, setCount] = useState(0);
   const hasRun = useRef(false);
 
@@ -16,8 +16,10 @@ function useCounter(target: number, duration = 2000, started: boolean) {
     let startTime: number | null = null;
     const raf = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Smoother easing: easeOutExpo
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       setCount(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(raf);
       else setCount(target);
@@ -28,6 +30,64 @@ function useCounter(target: number, duration = 2000, started: boolean) {
   return count;
 }
 
+// ── Per-element fade-in hook ──────────────────────────────────────────────────
+function useFadeIn(threshold = 0.5) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setHasMounted(true), 50);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted || !ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [hasMounted, threshold]);
+
+  return { ref, visible };
+}
+
+// ── FadeBox wrapper ───────────────────────────────────────────────────────────
+function FadeBox({
+  children,
+  className = "",
+  threshold = 0.5,
+  delay = "0ms",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  threshold?: number;
+  delay?: string;
+}) {
+  const { ref, visible } = useFadeIn(threshold);
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        transition: `opacity 0.7s ease-out ${delay}, transform 0.7s ease-out ${delay}`,
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(24px)",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+// ── StatCard ──────────────────────────────────────────────────────────────────
 function StatCard({
   target,
   suffix,
@@ -45,14 +105,16 @@ function StatCard({
   visible: boolean;
   delay: string;
 }) {
-  const count = useCounter(target, 2000, started);
+  const count = useCounter(target, 2400, started);
   return (
     <div
-      className={`relative flex flex-col items-center justify-center py-4 sm:py-5 md:py-6 px-2 sm:px-3 rounded-xl sm:rounded-2xl border border-white/[0.08] bg-white/[0.025] text-center overflow-hidden transition-all duration-700 ease-out ${delay} ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      }`}
+      className="relative flex flex-col items-center justify-center py-4 sm:py-5 md:py-6 px-2 sm:px-3 rounded-xl sm:rounded-2xl border border-white/[0.08] bg-white/[0.025] text-center overflow-hidden"
+      style={{
+        transition: `opacity 0.7s ease-out ${delay}, transform 0.7s ease-out ${delay}`,
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(24px)",
+      }}
     >
-      {/* Top gradient accent */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 sm:w-14 h-[2px] rounded-full bg-gradient-to-r from-sky-400/60 to-indigo-400/60" />
       <span className="text-xl sm:text-2xl md:text-[1.75rem] lg:text-3xl font-bold text-white tabular-nums leading-none mb-1 sm:mb-1.5">
         {prefix}
@@ -92,9 +154,8 @@ const skills = [
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function AboutSection() {
   const statsRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [started, setStarted] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [statsVisible, setStatsVisible] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
   const handleSectionClick = (
@@ -116,68 +177,30 @@ export default function AboutSection() {
     }
   };
 
-  // Mark component as mounted after first render
   useEffect(() => {
-    // Small delay to ensure initial hidden state is rendered first
-    const mountTimeout = setTimeout(() => {
-      setHasMounted(true);
-    }, 100);
-
-    return () => clearTimeout(mountTimeout);
+    const t = setTimeout(() => setHasMounted(true), 100);
+    return () => clearTimeout(t);
   }, []);
 
-  // Fade-in animation trigger - only starts observing after mount
-  useEffect(() => {
-    if (!hasMounted || !sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "-80px 0px -80px 0px",
-      },
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
-  }, [hasMounted]);
-
-  // Counter animation trigger
+  // Stats counter + visibility trigger
   useEffect(() => {
     if (!hasMounted || !statsRef.current) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setStarted(true);
+          setStatsVisible(true);
           observer.disconnect();
         }
       },
-      {
-        threshold: 0.5,
-        rootMargin: "-50px 0px -50px 0px",
-      },
+      { threshold: 0.3, rootMargin: "-50px 0px -50px 0px" },
     );
-
     observer.observe(statsRef.current);
-
     return () => observer.disconnect();
   }, [hasMounted]);
 
-  const fadeUp = (delay: string) =>
-    `transition-all duration-700 ease-out ${delay} ${
-      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-    }`;
-
   return (
     <section
-      ref={sectionRef}
       id="about"
       className="relative py-16 sm:py-20 md:py-24 lg:py-28 bg-[#080810] overflow-hidden"
     >
@@ -188,9 +211,7 @@ export default function AboutSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 px-6 lg:px-8">
         {/* ── Section heading ── */}
-        <div
-          className={`flex flex-col items-center text-center mb-10 sm:mb-12 lg:mb-16 ${fadeUp("delay-[0ms]")}`}
-        >
+        <FadeBox className="flex flex-col items-center text-center mb-10 sm:mb-12 lg:mb-16">
           <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11.5px] font-semibold tracking-[0.22em] uppercase text-sky-400/70 mb-3 sm:mb-4">
             <span className="w-4 sm:w-5 h-px bg-sky-400/50" />
             Who I Am
@@ -202,17 +223,14 @@ export default function AboutSection() {
           <p className="text-[13px] sm:text-[14px] md:text-[15px] text-white/35 max-w-md leading-relaxed px-4 sm:px-0">
             A little background on who I am, what I do, and how I work.
           </p>
-        </div>
+        </FadeBox>
 
-        {/* ── Two-column layout (side by side from md/768px) ── */}
+        {/* ── Two-column layout ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-10 lg:gap-16 items-center">
           {/* ════ LEFT — Photo + info ════ */}
           <div className="flex flex-col items-center md:items-start gap-6 sm:gap-8">
-            {/* ── Photo frame + Name wrapper ── */}
-            <div
-              className={`flex flex-col items-center ${fadeUp("delay-[100ms]")}`}
-            >
-              {/* ── Decorative photo frame ── */}
+            {/* Photo frame */}
+            <FadeBox className="flex flex-col items-center">
               <div
                 className="relative flex items-center justify-center
                   w-[300px] h-[300px]
@@ -221,26 +239,17 @@ export default function AboutSection() {
                   lg:w-[330px] lg:h-[330px]
                   xl:w-[360px] xl:h-[360px]"
               >
-                {/* Outer decorative square frame */}
                 <div className="absolute inset-0 w-full h-full">
-                  {/* Corner brackets */}
                   <div className="absolute top-0 left-0 w-5 sm:w-6 md:w-5 lg:w-7 h-5 sm:h-6 md:h-5 lg:h-7 border-t-2 border-l-2 border-sky-400/60 rounded-tl-lg" />
                   <div className="absolute top-0 right-0 w-5 sm:w-6 md:w-5 lg:w-7 h-5 sm:h-6 md:h-5 lg:h-7 border-t-2 border-r-2 border-indigo-400/60 rounded-tr-lg" />
                   <div className="absolute bottom-0 left-0 w-5 sm:w-6 md:w-5 lg:w-7 h-5 sm:h-6 md:h-5 lg:h-7 border-b-2 border-l-2 border-indigo-400/60 rounded-bl-lg" />
                   <div className="absolute bottom-0 right-0 w-5 sm:w-6 md:w-5 lg:w-7 h-5 sm:h-6 md:h-5 lg:h-7 border-b-2 border-r-2 border-sky-400/60 rounded-br-lg" />
-
-                  {/* Horizontal mid lines */}
                   <div className="absolute top-1/2 -translate-y-1/2 left-0 w-2 sm:w-2.5 h-px bg-sky-400/30" />
                   <div className="absolute top-1/2 -translate-y-1/2 right-0 w-2 sm:w-2.5 h-px bg-sky-400/30" />
-                  {/* Vertical mid lines */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-0 h-2 sm:h-2.5 w-px bg-indigo-400/30" />
                   <div className="absolute left-1/2 -translate-x-1/2 bottom-0 h-2 sm:h-2.5 w-px bg-indigo-400/30" />
                 </div>
-
-                {/* Glow bloom */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-500/20 to-indigo-500/20 blur-2xl scale-110 pointer-events-none" />
-
-                {/* Gradient ring border around circle */}
                 <div
                   className="relative rounded-full p-[3px]"
                   style={{
@@ -250,9 +259,7 @@ export default function AboutSection() {
                       "linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #38bdf8 100%)",
                   }}
                 >
-                  {/* Dark inner gap ring */}
                   <div className="w-full h-full rounded-full p-[3px] bg-[#080810]">
-                    {/* Photo */}
                     <div className="w-full h-full rounded-full overflow-hidden">
                       <Image
                         src="/images/my-img.jpeg"
@@ -265,8 +272,6 @@ export default function AboutSection() {
                     </div>
                   </div>
                 </div>
-
-                {/* Available badge */}
                 <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 flex items-center gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full border border-white/[0.1] bg-[#0d0d1c]/95 backdrop-blur-sm shadow-xl">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
@@ -276,8 +281,6 @@ export default function AboutSection() {
                     Available
                   </span>
                 </div>
-
-                {/* Floating dot accents */}
                 <div className="absolute -top-1.5 -left-1.5 sm:-top-2 sm:-left-2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-sky-400/50 blur-[2px]" />
                 <div className="absolute -bottom-1.5 -right-1.5 sm:-bottom-2 sm:-right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-indigo-400/50 blur-[2px]" />
               </div>
@@ -285,11 +288,7 @@ export default function AboutSection() {
               {/* Name + title */}
               <div
                 className="text-center mt-6 sm:mt-8
-                  w-[300px]
-                  sm:w-[340px]
-                  md:w-[280px]
-                  lg:w-[330px]
-                  xl:w-[360px]"
+                  w-[300px] sm:w-[340px] md:w-[280px] lg:w-[330px] xl:w-[360px]"
               >
                 <p className="text-base sm:text-lg md:text-base lg:text-[18px] font-bold text-white">
                   Ahatashamul
@@ -298,11 +297,12 @@ export default function AboutSection() {
                   Full-Stack Developer
                 </p>
               </div>
-            </div>
+            </FadeBox>
 
             {/* Quick info pills */}
-            <div
-              className={`flex flex-col gap-2 sm:gap-2.5 w-full ${fadeUp("delay-[300ms]")}`}
+            <FadeBox
+              className="flex flex-col gap-2 sm:gap-2.5 w-full"
+              delay="80ms"
             >
               {[
                 { icon: "🏆", text: "Top Rated Plus — Upwork" },
@@ -317,60 +317,70 @@ export default function AboutSection() {
                   <span>{text}</span>
                 </div>
               ))}
-            </div>
+            </FadeBox>
           </div>
 
           {/* ════ RIGHT — Bio + skills + CTAs ════ */}
           <div className="flex flex-col gap-6 sm:gap-8 md:gap-6 lg:gap-8 items-center md:items-start text-center md:text-left">
-            {/* Bio */}
-            <div className={fadeUp("delay-[150ms]")}>
-              <h3 className="text-xl sm:text-2xl md:text-xl lg:text-[1.7rem] font-bold text-white mb-4 sm:mb-5 md:mb-4 lg:mb-5 leading-snug">
+            {/* Heading */}
+            <FadeBox>
+              <h3 className="text-xl sm:text-2xl md:text-xl lg:text-[1.7rem] font-bold text-white leading-snug">
                 Hi, I&apos;m{" "}
                 <span className="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
                   Ahatashamul
                 </span>
               </h3>
-              <div className="flex flex-col gap-3 sm:gap-4 md:gap-3 lg:gap-4 text-[13px] sm:text-[15px] md:text-[13px] lg:text-[15px] leading-[1.8] sm:leading-[1.9] text-white/55">
-                <p>
-                  I&apos;m a full-stack developer with{" "}
-                  <span className="text-white/80 font-medium">
-                    3+ years of experience
-                  </span>{" "}
-                  building production-grade web applications — from AI-powered
-                  platforms and decentralized Web3 systems to SaaS tools and
-                  modern dashboards.
-                </p>
-                <p>
-                  I specialize in{" "}
-                  <span className="text-white/80 font-medium">
-                    Next.js, React, and Node.js
-                  </span>{" "}
-                  on the frontend and backend, with hands-on blockchain
-                  experience using{" "}
-                  <span className="text-white/80 font-medium">
-                    XPR Network / Proton Blockchain
-                  </span>{" "}
-                  and smart contracts. I handle everything from database
-                  architecture to pixel-perfect UI.
-                </p>
-                <p>
-                  On Upwork, I hold a{" "}
-                  <span className="text-white/80 font-medium">
-                    Top Rated Plus
-                  </span>{" "}
-                  badge — top 3% of the platform — with a{" "}
-                  <span className="text-white/80 font-medium">
-                    100% Job Success Score
-                  </span>
-                  , 1,400+ hours logged, and all 5-star reviews. I take pride in
-                  clean, maintainable code and clear communication throughout
-                  every project.
-                </p>
-              </div>
-            </div>
+            </FadeBox>
+
+            {/* Para 1 */}
+            <FadeBox delay="60ms">
+              <p className="text-[13px] sm:text-[15px] md:text-[13px] lg:text-[15px] leading-[1.8] sm:leading-[1.9] text-white/55">
+                I&apos;m a full-stack developer with{" "}
+                <span className="text-white/80 font-medium">
+                  3+ years of experience
+                </span>{" "}
+                building production-grade web applications — from AI-powered
+                platforms and decentralized Web3 systems to SaaS tools and
+                modern dashboards.
+              </p>
+            </FadeBox>
+
+            {/* Para 2 */}
+            <FadeBox delay="60ms">
+              <p className="text-[13px] sm:text-[15px] md:text-[13px] lg:text-[15px] leading-[1.8] sm:leading-[1.9] text-white/55">
+                I specialize in{" "}
+                <span className="text-white/80 font-medium">
+                  Next.js, React, and Node.js
+                </span>{" "}
+                on the frontend and backend, with hands-on blockchain experience
+                using{" "}
+                <span className="text-white/80 font-medium">
+                  XPR Network / Proton Blockchain
+                </span>{" "}
+                and smart contracts. I handle everything from database
+                architecture to pixel-perfect UI.
+              </p>
+            </FadeBox>
+
+            {/* Para 3 */}
+            <FadeBox delay="60ms">
+              <p className="text-[13px] sm:text-[15px] md:text-[13px] lg:text-[15px] leading-[1.8] sm:leading-[1.9] text-white/55">
+                On Upwork, I hold a{" "}
+                <span className="text-white/80 font-medium">
+                  Top Rated Plus
+                </span>{" "}
+                badge — top 3% of the platform — with a{" "}
+                <span className="text-white/80 font-medium">
+                  100% Job Success Score
+                </span>
+                , 1,400+ hours logged, and all 5-star reviews. I take pride in
+                clean, maintainable code and clear communication throughout
+                every project.
+              </p>
+            </FadeBox>
 
             {/* Core technologies */}
-            <div className={fadeUp("delay-[250ms]")}>
+            <FadeBox delay="60ms">
               <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] uppercase text-white/30 mb-2 sm:mb-3">
                 Core Technologies
               </p>
@@ -384,11 +394,12 @@ export default function AboutSection() {
                   </span>
                 ))}
               </div>
-            </div>
+            </FadeBox>
 
             {/* CTAs */}
-            <div
-              className={`flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-2 sm:gap-3 w-full sm:w-auto ${fadeUp("delay-[350ms]")}`}
+            <FadeBox
+              delay="60ms"
+              className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-2 sm:gap-3 w-full sm:w-auto"
             >
               <Link
                 href="#portfolio"
@@ -417,7 +428,7 @@ export default function AboutSection() {
               >
                 Contact Me
                 <svg
-                  className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-opacity duration-200"
+                  className="w-4 h-4 opacity-60"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -430,7 +441,7 @@ export default function AboutSection() {
                   />
                 </svg>
               </Link>
-            </div>
+            </FadeBox>
           </div>
         </div>
 
@@ -448,8 +459,8 @@ export default function AboutSection() {
                 prefix={prefix}
                 label={label}
                 started={started}
-                visible={visible}
-                delay={`delay-[${400 + index * 50}ms]`}
+                visible={statsVisible}
+                delay={`${index * 80}ms`}
               />
             ))}
           </div>
