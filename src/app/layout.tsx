@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Bangladesh",
   ],
   openGraph: {
-    title: "Ahatashamul Portfolio",
+    title: "Ahatashamul — Full-Stack Developer",
     description:
       "Md Ahatashamul Islam Mondol — full-stack developer from Bangladesh specializing in AI-powered web apps, SaaS platforms, and dashboards with Next.js, React, and Node.js.",
     type: "website",
