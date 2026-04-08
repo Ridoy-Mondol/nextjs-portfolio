@@ -155,12 +155,21 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // ── Wire up your email service here (e.g. EmailJS, Resend, Formspree) ──
-    // Simulating for now:
-    await new Promise((r) => setTimeout(r, 1500));
-    setStatus("sent");
-    setForm({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setStatus("idle"), 5000);
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    if (res.ok) {
+      setStatus("sent");
+      setForm({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setStatus("idle"), 5000);
+    } else {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
