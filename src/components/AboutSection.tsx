@@ -139,7 +139,6 @@ export default function AboutSection() {
       },
       {
         threshold: 0.15,
-        // rootMargin ensures animation triggers when section is properly in view
         rootMargin: "-80px 0px -80px 0px",
       },
     );
@@ -256,7 +255,7 @@ export default function AboutSection() {
                     {/* Photo */}
                     <div className="w-full h-full rounded-full overflow-hidden">
                       <Image
-                        src="/images/home-img.jpeg"
+                        src="/images/my-img.jpeg"
                         alt="Ahatashamul"
                         width={320}
                         height={320}

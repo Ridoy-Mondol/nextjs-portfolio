@@ -68,7 +68,7 @@ export default function HeroSection() {
       event.preventDefault();
       const section = document.getElementById(sectionId);
       if (section) {
-        const navHeight = 80; // Approximate navbar height (56px mobile + padding, 64px desktop)
+        const navHeight = 80;
         const elementPosition =
           section.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
@@ -189,9 +189,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* ── RIGHT — Photo with decorative frame (EXACTLY SAME ON ALL SCREENS) ── */}
+          {/* ── RIGHT — Photo with decorative frame ── */}
           <div className={`flex-shrink-0 ${fadeUp("delay-[120ms]")}`}>
-            {/* Outer sizing wrapper - scales proportionally */}
+            {/* Outer sizing wrapper */}
             <div
               className="relative flex items-center justify-center"
               style={{
@@ -265,7 +265,7 @@ export default function HeroSection() {
                   {/* Photo */}
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <Image
-                      src="/images/home-img.jpeg"
+                      src="/images/my-img.jpeg"
                       alt="Ahatashamul"
                       width={320}
                       height={320}

@@ -16,8 +16,18 @@ export async function generateMetadata({
   const project = projects.find((p) => p.id === slug);
   if (!project) return {};
   return {
-    title: `${project.name} — Ahatashamul`,
+    title: `${project.name} — Portfolio | Ahatashamul`,
     description: project.description,
+    icons: [{ rel: "icon", url: project.thumbnail }],
+    openGraph: {
+      title: `${project.name} — Portfolio | Ahatashamul`,
+      description: project.description,
+      type: "website",
+    },
+    twitter: {
+      title: `${project.name} — Portfolio | Ahatashamul`,
+      description: project.description,
+    },
   };
 }
 
