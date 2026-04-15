@@ -134,17 +134,113 @@ export default function Navbar() {
             {/* ── Logo ── */}
             <Link
               href="/#home"
-              className="group flex items-center gap-2 sm:gap-2.5 select-none shrink-0"
+              className="group flex items-center gap-3 select-none shrink-0"
               onClick={handleLogoClick}
             >
-              <span className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-md overflow-hidden">
-                <span className="absolute inset-0 bg-gradient-to-br from-sky-400 to-indigo-500" />
-                <span className="absolute inset-0 flex items-center justify-center text-[10px] sm:text-[11px] font-black text-white tracking-tight">
-                  A
-                </span>
+              <span className="shrink-0">
+                <svg
+                  width="46"
+                  height="46"
+                  viewBox="0 0 168 176"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient
+                      id="lg1"
+                      x1="0"
+                      y1="0"
+                      x2="168"
+                      y2="176"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0%" stopColor="#38bdf8" />
+                      <stop offset="100%" stopColor="#818cf8" />
+                    </linearGradient>
+                    <linearGradient
+                      id="lgH"
+                      x1="0"
+                      y1="0"
+                      x2="168"
+                      y2="0"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0%" stopColor="#38bdf8" />
+                      <stop offset="100%" stopColor="#818cf8" />
+                    </linearGradient>
+                    <radialGradient id="rf" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#0e1f38" />
+                      <stop offset="100%" stopColor="#080810" />
+                    </radialGradient>
+                  </defs>
+                  <circle cx="84" cy="88" r="74" fill="url(#rf)" />
+                  <circle
+                    cx="84"
+                    cy="88"
+                    r="74"
+                    fill="none"
+                    stroke="url(#lg1)"
+                    strokeWidth="7.5"
+                  />
+                  <circle
+                    cx="84"
+                    cy="88"
+                    r="79"
+                    fill="none"
+                    stroke="url(#lg1)"
+                    strokeWidth="0.6"
+                    opacity="0.15"
+                  />
+                  <g
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="10"
+                  >
+                    <line x1="62" y1="52" x2="38" y2="122" stroke="url(#lg1)" />
+                    <line x1="62" y1="52" x2="86" y2="122" stroke="url(#lg1)" />
+                    <line x1="86" y1="122" x2="86" y2="52" stroke="url(#lg1)" />
+                    <line x1="86" y1="52" x2="108" y2="92" stroke="url(#lg1)" />
+                    <line
+                      x1="108"
+                      y1="92"
+                      x2="130"
+                      y2="52"
+                      stroke="url(#lg1)"
+                    />
+                    <line
+                      x1="130"
+                      y1="52"
+                      x2="130"
+                      y2="122"
+                      stroke="url(#lg1)"
+                    />
+                  </g>
+                  <line
+                    x1="46"
+                    y1="96"
+                    x2="78"
+                    y2="96"
+                    stroke="url(#lgH)"
+                    strokeWidth="8.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </span>
-              <span className="text-[14px] sm:text-[15px] font-semibold text-white/90 tracking-tight group-hover:text-white transition-colors duration-200">
-                Ahatashamul
+
+              <span className="flex flex-col leading-tight gap-[3px]">
+                <span
+                  className="text-[16px] sm:text-[18px] font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-indigo-400 group-hover:opacity-90 transition-opacity duration-200"
+                  style={{ fontFamily: "Georgia, serif" }}
+                >
+                  Ahatashamul
+                </span>
+                <span
+                  className="text-[11px] sm:text-[12px] font-bold text-slate-200/80 tracking-[0.22em] group-hover:text-slate-200 transition-colors duration-200"
+                  style={{ fontFamily: "'Courier New', monospace" }}
+                >
+                  Islam Mondol
+                </span>
               </span>
             </Link>
 
@@ -241,7 +337,7 @@ export default function Navbar() {
                       className={`flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-[14px] sm:text-[15px] font-medium transition-all duration-150 ${
                         isActive
                           ? "text-white bg-white/[0.07]"
-                          : "text-white/50 hover:text-white/90 hover:bg-white/[0.04]"
+                          : "text-white/55 hover:text-white/90 hover:bg-white/[0.04]"
                       }`}
                     >
                       {link.label}

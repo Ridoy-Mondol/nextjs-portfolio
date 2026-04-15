@@ -260,7 +260,7 @@ export default function TestimonialsSection() {
               <button
                 onClick={prev}
                 aria-label="Previous testimonial"
-                className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/[0.1] bg-white/[0.04] text-white/50 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all duration-200"
+                className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/[0.1] bg-white/[0.04] text-white/55 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all duration-200"
               >
                 <svg
                   className="w-4 h-4"
@@ -279,7 +279,7 @@ export default function TestimonialsSection() {
               <button
                 onClick={next}
                 aria-label="Next testimonial"
-                className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/[0.1] bg-white/[0.04] text-white/50 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all duration-200"
+                className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/[0.1] bg-white/[0.04] text-white/55 hover:text-white hover:border-white/25 hover:bg-white/[0.08] transition-all duration-200"
               >
                 <svg
                   className="w-4 h-4"

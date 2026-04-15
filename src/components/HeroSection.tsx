@@ -7,9 +7,9 @@ import { useEffect, useState, type MouseEvent } from "react";
 // ── Animated typing cycle ─────────────────────────────────────────────────────
 const ROLES = [
   "Full-Stack Developer",
+  "Next.js & React Expert",
   "AI-Powered App Builder",
   "SaaS Platform Engineer",
-  "Next.js & React Expert",
 ];
 
 function useTypingCycle(words: string[], speed = 75, pause = 2000) {
@@ -128,7 +128,7 @@ export default function HeroSection() {
 
             {/* Bio */}
             <p
-              className={`text-[13px] sm:text-[14px] md:text-[15px] lg:text-[15.5px] leading-relaxed text-white/50 max-w-[500px] mb-7 lg:mb-9 ${fadeUp("delay-[200ms]")}`}
+              className={`text-[13px] sm:text-[14px] md:text-[15px] lg:text-[15.5px] leading-relaxed text-white/55 max-w-[500px] mb-7 lg:mb-9 ${fadeUp("delay-[200ms]")}`}
             >
               I&apos;m a full-stack developer with{" "}
               <span className="text-white/80 font-medium">

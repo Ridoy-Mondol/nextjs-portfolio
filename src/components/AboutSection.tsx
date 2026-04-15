@@ -327,7 +327,7 @@ export default function AboutSection() {
               <h3 className="text-xl sm:text-2xl md:text-xl lg:text-[1.7rem] font-bold text-white leading-snug">
                 Hi, I&apos;m{" "}
                 <span className="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
-                  Ahatashamul
+                  Md Ahatashamul I.
                 </span>
               </h3>
             </FadeBox>

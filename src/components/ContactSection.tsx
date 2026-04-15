@@ -271,7 +271,7 @@ export default function ContactSection() {
               </span>
               <p className="text-[13px] text-white/45">
                 <span className="text-white/70 font-semibold">
-                  Usually responds within 24 hours.
+                  Usually responds within 4 hours.
                 </span>{" "}
                 Currently available for new projects.
               </p>

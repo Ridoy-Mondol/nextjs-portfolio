@@ -101,7 +101,7 @@ export default async function ProjectDetailPage({
             </span>
           ))}
           {project.projectType === "client" && project.client && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-semibold border border-white/[0.1] text-white/50 bg-white/[0.04]">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-semibold border border-white/[0.1] text-white/55 bg-white/[0.04]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               {project.client}
             </span>
@@ -114,7 +114,7 @@ export default async function ProjectDetailPage({
         </h1>
 
         {/* ── Description ── */}
-        <p className="text-[15.5px] leading-relaxed text-white/50 max-w-3xl mb-8">
+        <p className="text-[15.5px] leading-relaxed text-white/55 max-w-3xl mb-8">
           {project.description}
         </p>
 
@@ -218,7 +218,7 @@ export default async function ProjectDetailPage({
                       {section.items.map((item, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-white/50"
+                          className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-white/55"
                         >
                           <svg
                             className="w-4 h-4 flex-shrink-0 mt-0.5"

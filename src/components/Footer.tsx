@@ -74,33 +74,153 @@ export default function Footer() {
         {/* ── Main footer body ── */}
         <div className="py-16">
           {/* Top section: Logo + Social + Description */}
-          <div className="mb-14 pb-12 border-b border-white/[0.08]">
+          <div className="mb-14 pb-12 border-b border-white/[0.1]">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               {/* Left: Logo + Desc */}
               <div className="flex flex-col gap-4 max-w-md">
                 <Link
-                  href="#home"
+                  href="/#home"
+                  className="group flex items-center gap-3 select-none shrink-0"
                   onClick={(event) => handleSectionClick("home", event)}
-                  className="group inline-flex items-center gap-2.5 w-fit"
                 >
-                  <span className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
-                    <span className="absolute inset-0 bg-gradient-to-br from-sky-400 to-indigo-500" />
-                    <span className="absolute inset-0 flex items-center justify-center text-[13px] font-black text-white tracking-tight">
-                      A
+                  <span className="shrink-0">
+                    <svg
+                      width="46"
+                      height="46"
+                      viewBox="0 0 168 176"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <linearGradient
+                          id="lg1"
+                          x1="0"
+                          y1="0"
+                          x2="168"
+                          y2="176"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop offset="0%" stopColor="#38bdf8" />
+                          <stop offset="100%" stopColor="#818cf8" />
+                        </linearGradient>
+                        <linearGradient
+                          id="lgH"
+                          x1="0"
+                          y1="0"
+                          x2="168"
+                          y2="0"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop offset="0%" stopColor="#38bdf8" />
+                          <stop offset="100%" stopColor="#818cf8" />
+                        </linearGradient>
+                        <radialGradient id="rf" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="#0e1f38" />
+                          <stop offset="100%" stopColor="#080810" />
+                        </radialGradient>
+                      </defs>
+                      <circle cx="84" cy="88" r="74" fill="url(#rf)" />
+                      <circle
+                        cx="84"
+                        cy="88"
+                        r="74"
+                        fill="none"
+                        stroke="url(#lg1)"
+                        strokeWidth="7.5"
+                      />
+                      <circle
+                        cx="84"
+                        cy="88"
+                        r="79"
+                        fill="none"
+                        stroke="url(#lg1)"
+                        strokeWidth="0.6"
+                        opacity="0.15"
+                      />
+                      <g
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="10"
+                      >
+                        <line
+                          x1="62"
+                          y1="52"
+                          x2="38"
+                          y2="122"
+                          stroke="url(#lg1)"
+                        />
+                        <line
+                          x1="62"
+                          y1="52"
+                          x2="86"
+                          y2="122"
+                          stroke="url(#lg1)"
+                        />
+                        <line
+                          x1="86"
+                          y1="122"
+                          x2="86"
+                          y2="52"
+                          stroke="url(#lg1)"
+                        />
+                        <line
+                          x1="86"
+                          y1="52"
+                          x2="108"
+                          y2="92"
+                          stroke="url(#lg1)"
+                        />
+                        <line
+                          x1="108"
+                          y1="92"
+                          x2="130"
+                          y2="52"
+                          stroke="url(#lg1)"
+                        />
+                        <line
+                          x1="130"
+                          y1="52"
+                          x2="130"
+                          y2="122"
+                          stroke="url(#lg1)"
+                        />
+                      </g>
+                      <line
+                        x1="46"
+                        y1="96"
+                        x2="78"
+                        y2="96"
+                        stroke="url(#lgH)"
+                        strokeWidth="8.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+
+                  <span className="flex flex-col leading-tight gap-[3px]">
+                    <span
+                      className="text-[16px] sm:text-[17px] font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-indigo-400 group-hover:opacity-90 transition-opacity duration-200"
+                      style={{ fontFamily: "Georgia, serif" }}
+                    >
+                      Ahatashamul
+                    </span>
+                    <span
+                      className="text-[11px] sm:text-[12px] font-bold text-slate-200/80 tracking-[0.22em] group-hover:text-slate-200 transition-colors duration-200"
+                      style={{ fontFamily: "'Courier New', monospace" }}
+                    >
+                      Islam Mondol
                     </span>
                   </span>
-                  <span className="text-[16px] font-bold text-white group-hover:text-sky-400 transition-colors duration-200">
-                    Ahatashamul
-                  </span>
                 </Link>
-                <p className="text-[13.5px] leading-relaxed text-white/40">
+                <p className="text-[13.5px] leading-relaxed text-white/55">
                   Full-stack web developer
                 </p>
               </div>
 
               {/* Right: Social links */}
               <div className="flex flex-col gap-4">
-                <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-white/30">
+                <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-white/55">
                   Follow Me
                 </p>
                 <div className="flex items-center gap-3">
@@ -111,7 +231,7 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="flex items-center justify-center w-9 h-9 rounded-xl border border-white/[0.12] bg-white/[0.05] text-white/50
+                      className="flex items-center justify-center w-9 h-9 rounded-xl border border-white/[0.12] bg-white/[0.05] text-white/55
                         hover:text-white/100 hover:border-sky-400/50 hover:bg-sky-400/[0.1] hover:scale-110
                         transition-all duration-200"
                     >
@@ -138,7 +258,7 @@ export default function Footer() {
                       onClick={(event) =>
                         handleSectionClick(href.slice(1), event)
                       }
-                      className="group flex items-center gap-2.5 text-[14px] text-white/50 hover:text-white/90 transition-colors duration-200"
+                      className="group flex items-center gap-2.5 text-[14px] text-white/55 hover:text-white/90 transition-colors duration-200"
                     >
                       <span className="inline-flex items-center justify-center w-5 h-5 text-[10px] text-sky-400/70 transition-transform duration-200 group-hover:translate-x-2">
                         →
@@ -221,7 +341,7 @@ export default function Footer() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-2.5 text-[14px] text-white/50 hover:text-white/90 transition-colors duration-200"
+                      className="group flex items-center gap-2.5 text-[14px] text-white/55 hover:text-white/90 transition-colors duration-200"
                     >
                       <span className="text-sky-400/60 group-hover:text-sky-400 transition-colors duration-200">
                         {icon}
@@ -241,7 +361,7 @@ export default function Footer() {
                 Get Started
               </p>
               <div className="flex flex-col gap-3">
-                <p className="text-[13.5px] text-white/50 leading-relaxed">
+                <p className="text-[13.5px] text-white/55 leading-relaxed">
                   Have a project in mind? Let's collaborate and build something
                   amazing together.
                 </p>
@@ -273,11 +393,11 @@ export default function Footer() {
           </div>
 
           {/* Bottom bar */}
-          <div className="border-t border-white/[0.06] pt-8">
+          <div className="border-t border-white/[0.1] pt-8">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-              <p className="text-[13px] text-white/30">
+              <p className="text-[13px] text-white/40">
                 © {year}{" "}
-                <span className="text-white/50 font-semibold">Ahatashamul</span>
+                <span className="text-white/55 font-semibold">Ahatashamul</span>
                 . All rights reserved.
               </p>
             </div>
