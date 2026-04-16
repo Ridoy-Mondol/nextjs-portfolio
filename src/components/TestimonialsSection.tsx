@@ -9,12 +9,12 @@ const testimonials = [
       "He completed the project on time. He was communicating actively to ensure that my requirements are met. He worked beyond my expectations and delivered exactly what I intended to achieve. I will surely hire him in all my future projects.",
     rating: 5,
     project: "React Redux Developer",
-    budget: "$75",
     type: "Fixed Price",
-    period: "Oct 2024 – Oct 2024",
+    period: "Oct 2024",
     client: "Bhety",
     location: "Austria",
     flag: "🇦🇹",
+    repeat: true,
   },
   {
     id: 2,
@@ -22,37 +22,37 @@ const testimonials = [
       "I had a great experience working with MD. He went above and beyond my expectations. Looking forward to working with him again.",
     rating: 5,
     project: "Next.js Blog System Development",
-    budget: "$300",
     type: "Fixed Price",
-    period: "Nov 2024 – Nov 2024",
+    period: "Nov 2024",
     client: "Jervis",
     location: "USA",
     flag: "🇺🇸",
+    repeat: true,
   },
   {
     id: 3,
     review:
       "Delivered on time and with expertise. I fully recommend him for React projects.",
     rating: 5,
-    project: "Simple React App doable for 3 hours or less",
-    budget: "$45",
+    project: "Simple React App",
     type: "Fixed Price",
-    period: "Apr 2025 – Jul 2025",
+    period: "Apr 2025",
     client: "Bhety",
     location: "Austria",
     flag: "🇦🇹",
+    repeat: true,
   },
   {
     id: 4,
     review: "Great work!",
     rating: 5,
     project: "Build Polling System Similar to Twitter",
-    budget: "$150",
     type: "Fixed Price",
-    period: "Nov 2024 – Nov 2024",
+    period: "Nov 2024",
     client: "Jervis",
     location: "USA",
     flag: "🇺🇸",
+    repeat: true,
   },
 ];
 
@@ -145,7 +145,7 @@ export default function TestimonialsSection() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          {/* Card — fixed total height via min-h on the inner layout */}
+          {/* Card — fixed total height */}
           <div className="relative rounded-2xl border border-white/[0.09] bg-[#0d0d1c] overflow-hidden">
             {/* Top gradient line */}
             <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-sky-400/50 to-transparent" />
@@ -156,7 +156,7 @@ export default function TestimonialsSection() {
             </div>
 
             <div className="p-8 sm:p-12 lg:p-14 flex flex-col h-[490px] md:h-[400px] lg:h-[380px]">
-              {/* Stars row — static, never transitions */}
+              {/* Stars row — */}
               <div className="flex items-center gap-3 mb-6">
                 <StarRating rating={t.rating} />
                 <span className="text-[12px] text-white/30 font-medium">
@@ -164,9 +164,9 @@ export default function TestimonialsSection() {
                 </span>
               </div>
 
-              {/* Review text — fixed height region, content fades/slides */}
+              {/* Review text — */}
               <div className="flex-1 flex flex-col justify-between">
-                {/* Quote block — animates on change */}
+                {/* Quote block */}
                 <div
                   className={`transition-all duration-300 ease-out ${
                     animating
@@ -181,7 +181,7 @@ export default function TestimonialsSection() {
                   </blockquote>
                 </div>
 
-                {/* Divider + client meta — also animates */}
+                {/* Divider + client meta */}
                 <div
                   className={`transition-all duration-300 ease-out ${
                     animating
@@ -218,10 +218,6 @@ export default function TestimonialsSection() {
                         {t.project}
                       </p>
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[13px] sm:text-[14px] font-bold text-white">
-                          {t.budget}
-                        </span>
-                        <span className="text-white/20">·</span>
                         <span className="text-[12px] sm:text-[13px] text-white/35">
                           {t.type}
                         </span>
@@ -229,6 +225,14 @@ export default function TestimonialsSection() {
                         <span className="text-[12px] sm:text-[13px] text-white/35">
                           {t.period}
                         </span>
+                        {t.repeat && (
+                          <>
+                            <span className="text-white/20">·</span>
+                            <span className="text-[11px] font-semibold text-sky-400/80 tracking-wide">
+                              ↩ Repeat Client
+                            </span>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>

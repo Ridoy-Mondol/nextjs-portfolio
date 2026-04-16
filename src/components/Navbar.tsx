@@ -280,7 +280,7 @@ export default function Navbar() {
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-sky-500 to-indigo-500" />
                 <span className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-200" />
-                <span className="relative text-white">Let’s Talk</span>
+                <span className="relative text-white">Request a Quote</span>
                 <svg
                   className="relative w-3.5 h-3.5 text-white group-hover:translate-x-0.5 transition-transform duration-200"
                   fill="none"
@@ -356,7 +356,7 @@ export default function Navbar() {
                 onClick={(event) => handleNavClick("contact", event)}
                 className="flex items-center justify-center gap-2 w-full py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-white/[0.12] text-[13.5px] sm:text-[14px] font-semibold text-white/80 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-150"
               >
-                Let’s Talk
+                Request a Quote
                 <svg
                   className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                   fill="none"
