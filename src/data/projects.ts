@@ -56,7 +56,7 @@ export const projects: Project[] = [
     accentFrom: "#38bdf8",
     accentTo: "#818cf8",
     thumbnail: "/images/projects/snipverse/thumbnail.png",
-    liveUrl: "https://snipverse.com/",
+    liveUrl: "https://snipverse.com/explore",
     featureSections: [
       {
         icon: "🤖",
@@ -69,9 +69,8 @@ export const projects: Project[] = [
             text: "Pulls live market stats (price, volume, change) into generated content via CoinGecko API",
           },
         ],
-        image: "/images/projects/snipverse/ai.png",
-        imageCaption:
-          "AI post generator with live crypto market data injected into content",
+        image: "/images/projects/snipverse/ai-generator.png",
+        imageCaption: "AI post generator",
       },
       {
         icon: "✍️",
@@ -109,20 +108,6 @@ export const projects: Project[] = [
           "Crypto portfolio dashboard with holdings, value tracking, and charts",
       },
       {
-        icon: "🌐",
-        title: "Crypto Market Overview",
-        items: [
-          { text: "Live market dashboard powered by CoinGecko API" },
-          {
-            text: "Displays price, 24h change, market cap, and volume for top cryptocurrencies",
-          },
-          { text: "Auto-refreshing data to keep the feed current" },
-        ],
-        image: "/images/projects/snipverse/market.png",
-        imageCaption:
-          "Live crypto market overview with real-time CoinGecko data",
-      },
-      {
         icon: "🗳️",
         title: "Poll Feature",
         items: [
@@ -148,7 +133,7 @@ export const projects: Project[] = [
             text: "Referral dashboard showing total referrals and earned rewards",
           },
         ],
-        image: "/images/projects/snipverse/referral.png",
+        image: "/images/projects/snipverse/referrals.png",
         imageCaption:
           "Referral dashboard with unique link, sign-up tracking, and rewards",
       },
@@ -177,7 +162,7 @@ export const projects: Project[] = [
             text: "Secure token exchange and user profile creation on first login",
           },
         ],
-        image: "/images/projects/snipverse/google-auth.png",
+        image: "/images/projects/snipverse/google-login.png",
         imageCaption: "Google OAuth login flow and authentication screen",
       },
       {
@@ -192,7 +177,7 @@ export const projects: Project[] = [
             text: "Forced logout on token invalidation or suspicious activity",
           },
         ],
-        image: "/images/projects/snipverse/session.png",
+        image: "/images/projects/snipverse/sessions.png",
         imageCaption: "Session management — active sessions and token handling",
       },
       {
@@ -212,6 +197,8 @@ export const projects: Project[] = [
             text: "Write access — authorised third-party sites can create and publish content to Snipverse",
           },
         ],
+        image: "/images/projects/snipverse/api.png",
+        imageCaption: "API key management and developer integration",
       },
       {
         icon: "⚙️",
@@ -232,8 +219,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "dao-dashboard",
-    name: "DAO Dashboard",
+    id: "dao",
+    name: "DAO Governance",
     tagline: "Full DAO Governance Ecosystem for Snipverse",
     category: "Web3 · DAO",
     tags: ["Web3 DAO", "Client Project"],
@@ -253,7 +240,8 @@ export const projects: Project[] = [
     ],
     accentFrom: "#38bdf8",
     accentTo: "#818cf8",
-    thumbnail: "/images/projects/dao-dashboard/thumbnail.jpg",
+    thumbnail: "/images/projects/dao-dashboard/thumbnail.png",
+    liveUrl: "https://snipverse.com/governance",
     featureSections: [
       {
         icon: "🏛️",
@@ -263,7 +251,7 @@ export const projects: Project[] = [
           { text: "Annual election system for community-elected seats" },
           { text: "Recall mechanism to remove underperforming members" },
         ],
-        image: "/images/projects/dao-dashboard/council.jpg",
+        image: "/images/projects/dao-dashboard/council.png",
         imageCaption: "Council structure and governance overview dashboard",
       },
       {
@@ -275,7 +263,7 @@ export const projects: Project[] = [
           { text: "On-chain voting via XPR Network smart contracts" },
           { text: "Mid-term recall voting system" },
         ],
-        image: "/images/projects/dao-dashboard/voting.jpg",
+        image: "/images/projects/dao-dashboard/elections.png",
         imageCaption: "On-chain election interface with live vote counts",
       },
       {
@@ -287,7 +275,7 @@ export const projects: Project[] = [
           { text: "Contribution/activity logging system" },
           { text: "Performance-based recall trigger system" },
         ],
-        image: "/images/projects/dao-dashboard/performance.jpg",
+        image: "/images/projects/dao-dashboard/performance.png",
         imageCaption: "Performance tracking dashboard with member metrics",
       },
       {
@@ -300,7 +288,7 @@ export const projects: Project[] = [
           { text: "Community voting on all proposals" },
           { text: "Structured decision-making workflow" },
         ],
-        image: "/images/projects/dao-dashboard/proposal.jpg",
+        image: "/images/projects/dao-dashboard/proposal.png",
         imageCaption: "Proposal submission and community voting interface",
       },
       {
@@ -316,6 +304,22 @@ export const projects: Project[] = [
           { text: "Recall voting with 4/7 majority removal logic" },
           { text: "Community reporting system" },
         ],
+        image: "/images/projects/dao-dashboard/moderator.png",
+        imageCaption: "Moderator management interface",
+      },
+      {
+        icon: "🔄",
+        title: "Recall & Accountability System",
+        items: [
+          { text: "Recall system for council members and moderators" },
+          { text: "Community recall for underperforming council members" },
+          { text: "Council voting to remove moderators" },
+          { text: "Mid-term member removal and replacement" },
+          { text: "On-chain recall and removal records" },
+        ],
+        image: "/images/projects/dao-dashboard/recall.png",
+        imageCaption:
+          "Recall and accountability dashboard for council members and moderators",
       },
       {
         icon: "🚨",
@@ -354,16 +358,16 @@ export const projects: Project[] = [
             text: "Emergency stop, budget control, and spending cap mechanisms",
           },
         ],
-        image: "/images/projects/dao-dashboard/treasury.jpg",
+        image: "/images/projects/dao-dashboard/treasury.png",
         imageCaption:
           "Community treasury dashboard with on-chain transaction history",
       },
     ],
   },
   {
-    id: "snipdex",
-    name: "SnipDex",
-    tagline: "Decentralized Exchange on XPR Network",
+    id: "dex",
+    name: "Decentralized Exchange",
+    tagline: "Full Decentralized Exchange Ecosystem for Snipverse",
     category: "Web3 · DeFi",
     tags: ["Web3 DEX", "Client Project"],
     projectType: "client",
@@ -382,7 +386,8 @@ export const projects: Project[] = [
     ],
     accentFrom: "#38bdf8",
     accentTo: "#818cf8",
-    thumbnail: "/images/projects/snipdex/thumbnail.png",
+    thumbnail: "/images/projects/dex/thumbnail.png",
+    liveUrl: "https://snipverse.com/markets",
     featureSections: [
       {
         icon: "📒",
@@ -393,7 +398,7 @@ export const projects: Project[] = [
           { text: "Trade history and order management" },
           { text: "On-chain settlement via smart contracts" },
         ],
-        image: "/images/projects/snipdex/orderbook.png",
+        image: "/images/projects/dex/orderbook.png",
         imageCaption:
           "Live order book with buy/sell interface and trade history",
       },
@@ -406,7 +411,7 @@ export const projects: Project[] = [
           { text: "Real-time swap price calculation" },
           { text: "Smart contract-powered non-custodial swaps" },
         ],
-        image: "/images/projects/snipdex/amm-swap.png",
+        image: "/images/projects/dex/swap.png",
         imageCaption:
           "AMM swap interface with slippage controls and price impact",
       },
@@ -418,7 +423,7 @@ export const projects: Project[] = [
           { text: "LP token issuance and redemption" },
           { text: "Pool share and earnings tracking" },
         ],
-        image: "/images/projects/snipdex/liquidity.png",
+        image: "/images/projects/dex/liquidity.png",
         imageCaption: "Liquidity pool management with add/remove flow",
       },
       {
@@ -432,7 +437,7 @@ export const projects: Project[] = [
           { text: "Top exchange and volume percentage breakdown" },
           { text: "Sortable and searchable market table" },
         ],
-        image: "/images/projects/snipdex/market.png",
+        image: "/images/projects/dex/market.png",
         imageCaption: "Full crypto market section with detailed token metrics",
       },
     ],

@@ -131,8 +131,8 @@ function StatCard({
 const stats = [
   { target: 3, suffix: "+", label: "Years Experience" },
   { target: 100, suffix: "%", label: "Job Success Score" },
-  { target: 1400, suffix: "+", label: "Hours on Upwork" },
-  { target: 17, suffix: "K+", prefix: "$", label: "Earned on Upwork" },
+  { target: 1600, suffix: "+", label: "Hours on Upwork" },
+  { target: 20, suffix: "K+", prefix: "$", label: "Earned on Upwork" },
   { target: 5, suffix: "★", label: "All Reviews" },
 ];
 
@@ -367,9 +367,9 @@ export default function AboutSection() {
               <p className="text-[13px] sm:text-[15px] md:text-[13px] lg:text-[15px] leading-[1.8] sm:leading-[1.9] text-white/55">
                 On Upwork, I hold a{" "}
                 <span className="text-white/80 font-medium">
-                  Top Rated Plus
+                  Top Rated
                 </span>{" "}
-                badge — top 3% of the platform — with a{" "}
+                badge — top 10% of the platform — with a{" "}
                 <span className="text-white/80 font-medium">
                   100% Job Success Score
                 </span>

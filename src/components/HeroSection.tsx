@@ -110,7 +110,7 @@ export default function HeroSection() {
               <br />
               <span className="text-white/25">&</span>{" "}
               <span className="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
-                Top Rated Plus
+                Top Rated
               </span>
               <br />
               Upwork Freelancer
