@@ -305,7 +305,7 @@ export default function AboutSection() {
               delay="80ms"
             >
               {[
-                { icon: "🏆", text: "Top Rated Plus — Upwork" },
+                { icon: "🏆", text: "Top Rated — Upwork" },
                 { icon: "📍", text: "Bangladesh" },
                 { icon: "💼", text: "Open to freelance & contracts" },
               ].map(({ icon, text }) => (
