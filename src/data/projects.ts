@@ -376,7 +376,7 @@ export const projects: Project[] = [
     description:
       "A DEX featuring order-book trading, AMM-based swaps, liquidity pool management, and a full crypto market section — built on XPR Network with React and Node.js.",
     overview:
-      "SnipDex is a full-featured hybrid decentralized exchange on XPR Network / Proton Blockchain. It uniquely combines traditional order-book trading with AMM liquidity pool swaps, a comprehensive market data section, and a polished React trading interface backed by a Node.js matching engine.",
+      "A full-featured hybrid decentralized exchange on XPR Network / Proton Blockchain. It uniquely combines traditional order-book trading with AMM liquidity pool swaps, a comprehensive market data section, and a polished React trading interface backed by a Node.js matching engine.",
     tech: [
       "Smart Contracts",
       "XPR Network",
@@ -452,9 +452,9 @@ export const projects: Project[] = [
     client: "Hamza (UK)",
     myRole: "Full-Stack Developer",
     description:
-      "Paste a Taobao or Weidian product link to instantly find QC images and full product details from multiple Chinese e-commerce platforms.",
+      "A Node.js scraping platform that automates login to Chinese e-commerce platforms and extracts QC images and product details from Taobao, Weidian, and other sources.",
     overview:
-      "QCFinder is a specialized scraper platform for the replica and reseller community. Users paste a Taobao or Weidian product link and the platform automatically fetches QC images, prices, product details, and seller info from multiple Chinese platforms — all in one clean interface.",
+      "QCFinder is a web scraping platform built for the replica and reseller community. Using Node.js and Puppeteer, it automates login to Chinese e-commerce platforms, handles complex CAPTCHA challenges, navigates to target product pages, and scrapes QC images, prices, seller information, and other product details. The collected data is then presented through a React interface, with MongoDB caching to speed up repeated searches.",
     tech: ["React.js", "Node.js", "Puppeteer", "MongoDB", "Tailwind CSS"],
     accentFrom: "#38bdf8",
     accentTo: "#818cf8",
@@ -466,11 +466,40 @@ export const projects: Project[] = [
         title: "Product Search",
         items: [
           { text: "Search using Taobao or Weidian product links" },
-          { text: "Instant scraping from multiple Chinese platforms" },
-          { text: "Fast cached results via MongoDB" },
+          { text: "Start automated scraping from the submitted product URL" },
+          { text: "Get cached results from MongoDB for faster searches" },
         ],
         image: "/images/projects/qcfinder/search.png",
         imageCaption: "Search interface with Taobao/Weidian link input",
+      },
+      {
+        icon: "🔐",
+        title: "Automated Login & CAPTCHA Handling",
+        items: [
+          { text: "Automated login using email and password with Puppeteer" },
+          { text: "Programmatic handling of complex CAPTCHA challenges" },
+          { text: "Automated navigation to target product pages after login" },
+        ]
+      },
+      {
+        icon: "🕷️",
+        title: "Web Scraping & QC Image Extraction",
+        items: [
+          {
+            text: "Scraped QC images from multiple Chinese e-commerce platforms",
+          },
+          {
+            text: "Extracted product prices, seller information, and product details",
+          },
+          {
+            text: "Used Puppeteer to automate browser interactions and data collection",
+          },
+          {
+            text: "Cached scraping results with MongoDB to reduce repeated requests",
+          },
+        ],
+        image: "/images/projects/qcfinder/details.png",
+        imageCaption: "Scraped QC images and product information",
       },
       {
         icon: "🛍️",
