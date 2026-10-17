@@ -159,12 +159,14 @@ export default async function ProjectDetailPage({
         </div>
 
         {/* ── Main thumbnail ── */}
-        <div className="relative w-full h-64 sm:h-80 lg:h-[420px] rounded-2xl overflow-hidden border border-white/[0.09] mb-10 bg-[#0d0d1c]">
+        <div className="relative w-full rounded-2xl overflow-hidden border border-white/[0.09] mb-10 bg-[#0d0d1c]">
           <Image
             src={project.thumbnail}
             alt={project.name}
-            fill
-            className="object-cover object-top"
+            width={1920}
+            height={1080}
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="w-full h-auto"
             priority
           />
         </div>

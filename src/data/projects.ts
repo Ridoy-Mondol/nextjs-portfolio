@@ -443,6 +443,104 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "snipverse-mobile",
+    name: "Snipverse Mobile App",
+    tagline: "Native Android & iOS App for the Snipverse Web3 Social Platform",
+    category: "Mobile · Web3",
+    tags: ["React Native", "Client Project"],
+    projectType: "client",
+    client: "Jervis (USA)",
+    myRole: "Full-Stack Mobile Developer",
+    description:
+      "The mobile version of Snipverse, built with React Native and Expo. I set up the project from scratch, built the full authentication flow (wallet, Google, X), integrated the Snipverse API, and automated builds and Google Play releases with CI/CD.",
+    overview:
+      "I initiated and built the Snipverse mobile app from the ground up using React Native and Expo. This included project setup with NativeWind, a complete multi-method authentication system matching the web app's behavior, integration with the existing Snipverse API, and the entire release pipeline: Expo EAS builds, Google Play setup and publishing, and GitHub Actions CI/CD that builds and publishes to Google Play on every push.",
+    tech: [
+      "React Native",
+      "Expo",
+      "NativeWind",
+      "Supabase Auth",
+      "XPR Network",
+      "GitHub Actions",
+      "EAS Build",
+    ],
+    accentFrom: "#38bdf8",
+    accentTo: "#818cf8",
+    thumbnail: "/images/projects/snipverse-mobile/thumbnail.jpeg",
+    featureSections: [
+      {
+        icon: "🚀",
+        title: "Project Setup & Architecture",
+        items: [
+          { text: "Initialized the Expo React Native project from scratch" },
+          { text: "NativeWind (Tailwind CSS) styling setup" },
+          { text: "Environment configuration for dev and production builds" },
+          { text: "Everything needed to run and ship an Expo app" },
+        ],
+      },
+      {
+        icon: "🔗",
+        title: "Wallet Sign-In",
+        items: [
+          { text: "Connect wallet sign-in for XPR Network wallets" },
+          { text: "Login and identity transaction flow, matching the web app" },
+          {
+            text: "New users saved to the database and returning users retrieved correctly",
+          },
+          { text: "Session handling and persistence across app restarts" },
+        ],
+        image: "/images/projects/snipverse-mobile/auth.jpeg",
+        imageCaption: "Main sign-in screen with wallet connect",
+      },
+      {
+        icon: "🔐",
+        title: "Social Sign-In (Google & X)",
+        items: [
+          { text: "Google sign-in via web, Android and iOS OAuth clients" },
+          { text: "X (Twitter OAuth 2.0) sign-in through Supabase Auth" },
+          {
+            text: "Collects email, name and photo, then sends them to the Snipverse API for verification",
+          },
+          { text: "Session handling through Supabase Auth" },
+        ],
+        image: "/images/projects/snipverse-mobile/social_auth.jpeg",
+        imageCaption: "Google and X sign-in options",
+      },
+      {
+        icon: "🔌",
+        title: "Snipverse API Integration",
+        items: [
+          { text: "Connected the app to the existing Snipverse API endpoints" },
+          {
+            text: "New users are saved to the database and retrieved correctly on return",
+          },
+          { text: "Tested end to end against the dev environment" },
+        ],
+      },
+      {
+        icon: "📦",
+        title: "Build & Release Setup",
+        items: [
+          { text: "Expo EAS (expo.dev) build configuration" },
+          { text: "Google Play Console setup and app publishing" },
+          {
+            text: "Play Store signing configured for production Google sign-in",
+          },
+          { text: "Environment variables managed across build profiles" },
+        ],
+      },
+      {
+        icon: "⚙️",
+        title: "CI/CD Pipeline",
+        items: [
+          { text: "GitHub Actions workflow triggered on every push" },
+          { text: "Automatic build via Expo EAS" },
+          { text: "Direct publishing to Google Play with no manual steps" },
+        ],
+      },
+    ],
+  },
+  {
     id: "qcfinder",
     name: "QCFinder",
     tagline: "QC Image Scraper for Chinese E-Commerce",
@@ -479,7 +577,7 @@ export const projects: Project[] = [
           { text: "Automated login using email and password with Puppeteer" },
           { text: "Programmatic handling of complex CAPTCHA challenges" },
           { text: "Automated navigation to target product pages after login" },
-        ]
+        ],
       },
       {
         icon: "🕷️",
@@ -590,89 +688,6 @@ export const projects: Project[] = [
         ],
         image: "/images/projects/next-blog/profile.png",
         imageCaption: "User profile page with authored posts",
-      },
-    ],
-  },
-  {
-    id: "carvila",
-    name: "Carvila",
-    tagline: "Modern Car Selling & Listing UI Template",
-    category: "Frontend",
-    tags: ["Frontend", "Personal Project"],
-    projectType: "personal",
-    myRole: "Frontend Developer",
-    description:
-      "A modern car marketplace UI template showcasing vehicle listings, filtering interfaces, and a clean, user-friendly layout designed for real-world applications.",
-    overview:
-      "Carvilla is a frontend-only UI template built with React.js, designed to simulate a modern car selling platform. It focuses on clean layout structure, reusable components, and a visually engaging user experience. While the filtering, listings, and sections are static and non-functional, the project demonstrates how a real-world car marketplace interface would be structured and presented.",
-    tech: ["React.js", "CSS3"],
-    accentFrom: "#38bdf8",
-    accentTo: "#818cf8",
-    thumbnail: "/images/projects/carvila/thumbnail.png",
-    liveUrl: "https://ridoy-mondol.github.io/carvilla/",
-    githubUrl: "https://github.com/Ridoy-Mondol/carvilla",
-    featureSections: [
-      {
-        icon: "🏠",
-        title: "Hero & Search Section",
-        items: [
-          { text: "Full-width hero banner with strong headline and CTA" },
-          {
-            text: "Car search interface with multiple filter fields (UI only)",
-          },
-          { text: "Smooth scroll navigation between sections" },
-        ],
-        image: "/images/projects/carvila/hero.png",
-        imageCaption: "Hero section with search UI and CTA",
-      },
-      {
-        icon: "🎞️",
-        title: "Newest Cars Slider",
-        items: [
-          { text: "Full-width slider showcasing latest cars" },
-          { text: "Each slide includes image, name, description, and CTA" },
-          { text: "Designed for immersive browsing experience" },
-        ],
-        image: "/images/projects/carvila/newest.png",
-        imageCaption: "Full-width slider for newest cars",
-      },
-      {
-        icon: "🚗",
-        title: "Featured Cars Grid",
-        items: [
-          { text: "Responsive grid layout with multiple car cards" },
-          { text: "Each card displays image, model, price, and description" },
-          { text: "Layout adapts based on screen width" },
-        ],
-        image: "/images/projects/carvila/listings.png",
-        imageCaption: "Featured cars displayed in responsive card grid",
-      },
-      {
-        icon: "💬",
-        title: "Testimonials Section",
-        items: [
-          { text: "Customer review cards with names and locations" },
-          { text: "Repeated layout to simulate real feedback" },
-          { text: "Adds trust-building UI elements" },
-        ],
-      },
-      {
-        icon: "🏷️",
-        title: "Brand Showcase",
-        items: [
-          { text: "Grid display of popular car brand logos" },
-          { text: "Clean and minimal layout" },
-          { text: "Enhances visual credibility" },
-        ],
-      },
-      {
-        icon: "📩",
-        title: "Newsletter & Footer",
-        items: [
-          { text: "Newsletter subscription input UI" },
-          { text: "Multi-column footer with navigation links" },
-          { text: "Structured layout for company info" },
-        ],
       },
     ],
   },
