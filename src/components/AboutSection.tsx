@@ -373,7 +373,7 @@ export default function AboutSection() {
                 <span className="text-white/80 font-medium">
                   100% Job Success Score
                 </span>
-                , 1,400+ hours logged, and all 5-star reviews. I take pride in
+                , 1,600+ hours logged, and all 5-star reviews. I take pride in
                 clean, maintainable code and clear communication throughout
                 every project.
               </p>
