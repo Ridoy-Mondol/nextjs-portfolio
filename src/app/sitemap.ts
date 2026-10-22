@@ -1,15 +1,15 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://portfolio-chi-sepia-10.vercel.app";
+  const baseUrl = "https://ahatashamul.com";
 
   const projects = [
     "snipverse",
-    "dao-dashboard",
-    "snipdex",
+    "dao",
+    "dex",
+    "snipverse-mobile",
     "qcfinder",
     "next-blog",
-    "carvila",
   ];
 
   return [
