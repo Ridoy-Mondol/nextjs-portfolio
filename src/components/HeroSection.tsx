@@ -265,7 +265,7 @@ export default function HeroSection() {
                   {/* Photo */}
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <Image
-                      src="/images/my-img.jpeg"
+                      src="/images/linkedin.png"
                       alt="Ahatashamul"
                       width={320}
                       height={320}
