@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Md Ahatashamul Islam Mondol — full-stack developer from Bangladesh specializing in AI-powered web apps, SaaS platforms, and dashboards with Next.js, React, and Node.js.";
+  "Md Ahatashamul Islam Mondol — full-stack and Web3 developer from Bangladesh. I build web apps, dashboards, and blockchain products with Next.js, React, and Node.js.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Ahatashamul — Full-Stack Developer",
+  title: "Ahatashamul — Full-Stack & Web3 Developer",
   description,
   applicationName: "Ahatashamul Portfolio",
   authors: [
@@ -31,16 +31,20 @@ export const metadata: Metadata = {
   ],
   keywords: [
     "Full-Stack Developer",
+    "Web3 Developer",
+    "Blockchain Developer",
+    "Smart Contracts",
+    "XPR Network",
     "Next.js",
     "React",
     "Node.js",
-    "AI Web Apps",
-    "SaaS",
+    "TypeScript",
     "Portfolio",
     "Bangladesh",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Ahatashamul — Full-Stack Developer",
+    title: "Ahatashamul — Full-Stack & Web3 Developer",
     description,
     type: "website",
     locale: "en_US",
@@ -49,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ahatashamul — Full-Stack Developer",
+    title: "Ahatashamul — Full-Stack & Web3 Developer",
     description,
   },
 };
@@ -59,7 +63,16 @@ const personJsonLd = {
   "@type": "Person",
   name: "Md Ahatashamul Islam Mondol",
   url: SITE_URL,
-  jobTitle: "Full-Stack Developer",
+  jobTitle: "Full-Stack & Web3 Developer",
+  knowsAbout: [
+    "Full-Stack Web Development",
+    "Web3",
+    "Blockchain",
+    "Smart Contracts",
+    "Next.js",
+    "React",
+    "Node.js",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Rajshahi",
