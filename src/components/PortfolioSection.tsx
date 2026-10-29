@@ -162,8 +162,8 @@ export default function PortfolioSection() {
             Portfolio
           </h2>
           <p className="text-[15px] text-white/35 max-w-md leading-relaxed">
-            From Web3 platforms and DeFi exchanges to SaaS tools and modern web
-            apps — built end-to-end.
+            From Web3 platforms and DeFi exchanges to mobile apps and scrapers,
+            built end to end.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

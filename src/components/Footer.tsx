@@ -214,7 +214,7 @@ export default function Footer() {
                   </span>
                 </Link>
                 <p className="text-[13.5px] leading-relaxed text-white/55">
-                  Full-stack web developer
+                  Full-stack & Web3 developer
                 </p>
               </div>
 

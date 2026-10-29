@@ -43,18 +43,20 @@ const services = [
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6.75v6.75"
+          d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
         />
       </svg>
     ),
-    title: "SaaS Platform Development",
+    title: "Mobile App Development",
     description:
-      "Building multi-tenant SaaS products from scratch — including auth systems, subscription flows, user dashboards, and admin panels. Architected for scale from day one.",
+      "Cross-platform apps with React Native and Expo, from authentication (wallet, Google, X) and API integration to automated builds and store releases. I set up projects from scratch and handle the full release pipeline.",
     highlights: [
-      "Auth & Sessions",
-      "Admin Dashboards",
-      "User Management",
-      "Billing Integration",
+      "React Native",
+      "Expo",
+      "Authentication",
+      "API Integration",
+      "CI/CD",
+      "Store Releases",
     ],
   },
   {

@@ -41,7 +41,7 @@ export const projects: Project[] = [
     client: "Jervis (USA)",
     myRole: "Full-Stack Developer",
     description:
-      "A decentralized social platform for crypto enthusiasts and Web3 community building — with AI tools, crypto dashboards, voice features, and a full blogging system.",
+      "A Web3 social platform for the crypto community. I worked on its AI post generator with live market data, blogging system with voice tools, portfolio dashboard, polls, referrals, public API, Google login and CI/CD.",
     overview:
       "Snipverse is a feature-rich decentralized social platform built for the crypto and Web3 community. I built a wide range of features spanning AI automation, real-time crypto data, content management, voice tools, social mechanics, and production DevOps — all within a single cohesive platform using Next.js and Supabase.",
     tech: [
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     client: "Jervis (USA)",
     myRole: "Full-Stack Web3 Developer",
     description:
-      "A complete DAO governance system with voting, elections, moderation, treasury management, revenue sharing, and on-chain transparency — built solo using XPR Network smart contracts.",
+      "A complete DAO governance system with elections, voting, moderation, treasury and revenue sharing, built solo on XPR Network smart contracts.",
     overview:
       "I built a full DAO governance ecosystem for Snipverse. This system replaces centralized control with community-driven decision-making: token holders elect council members, vote on proposals, manage a community treasury, and moderate content — all transparently recorded on-chain via XPR Network smart contracts.",
     tech: [
@@ -374,7 +374,7 @@ export const projects: Project[] = [
     client: "Jervis (USA)",
     myRole: "Full-Stack Web3 Developer",
     description:
-      "A DEX featuring order-book trading, AMM-based swaps, liquidity pool management, and a full crypto market section — built on XPR Network with React and Node.js.",
+      "A hybrid exchange combining order-book trading, AMM swaps, liquidity pools and a crypto market section, built on XPR Network with React and Node.js.",
     overview:
       "A full-featured hybrid decentralized exchange on XPR Network / Proton Blockchain. It uniquely combines traditional order-book trading with AMM liquidity pool swaps, a comprehensive market data section, and a polished React trading interface backed by a Node.js matching engine.",
     tech: [
@@ -452,7 +452,7 @@ export const projects: Project[] = [
     client: "Jervis (USA)",
     myRole: "Full-Stack Mobile Developer",
     description:
-      "The mobile version of Snipverse, built with React Native and Expo. I set up the project from scratch, built the full authentication flow (wallet, Google, X), integrated the Snipverse API, and automated builds and Google Play releases with CI/CD.",
+      "The mobile app for Snipverse, built with React Native and Expo. I built the full login flow (wallet, Google, X), integrated the Snipverse API, and automated builds and Google Play releases with CI/CD.",
     overview:
       "I initiated and built the Snipverse mobile app from the ground up using React Native and Expo. This included project setup with NativeWind, a complete multi-method authentication system matching the web app's behavior, integration with the existing Snipverse API, and the entire release pipeline: Expo EAS builds, Google Play setup and publishing, and GitHub Actions CI/CD that builds and publishes to Google Play on every push.",
     tech: [
@@ -550,7 +550,7 @@ export const projects: Project[] = [
     client: "Hamza (UK)",
     myRole: "Full-Stack Developer",
     description:
-      "A Node.js scraping platform that automates login to Chinese e-commerce platforms and extracts QC images and product details from Taobao, Weidian, and other sources.",
+      "A Node.js scraping platform that automates login to Taobao, Weidian and other platforms and extracts QC images and product details.",
     overview:
       "QCFinder is a web scraping platform built for the replica and reseller community. Using Node.js and Puppeteer, it automates login to Chinese e-commerce platforms, handles complex CAPTCHA challenges, navigates to target product pages, and scrapes QC images, prices, seller information, and other product details. The collected data is then presented through a React interface, with MongoDB caching to speed up repeated searches.",
     tech: ["React.js", "Node.js", "Puppeteer", "MongoDB", "Tailwind CSS"],

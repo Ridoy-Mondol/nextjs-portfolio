@@ -140,6 +140,7 @@ const skills = [
   "Next.js",
   "React",
   "Node.js",
+  "React Native",
   "TypeScript",
   "Supabase",
   "MongoDB",
@@ -307,7 +308,10 @@ export default function AboutSection() {
               {[
                 { icon: "🏆", text: "Top Rated — Upwork" },
                 { icon: "📍", text: "Bangladesh" },
-                { icon: "💼", text: "Open to freelance & contracts" },
+                {
+                  icon: "💼",
+                  text: "Open to freelance, contract & full-time remote roles",
+                },
               ].map(({ icon, text }) => (
                 <div
                   key={text}
@@ -339,9 +343,9 @@ export default function AboutSection() {
                 <span className="text-white/80 font-medium">
                   3+ years of experience
                 </span>{" "}
-                building production-grade web applications — from AI-powered
-                platforms and decentralized Web3 systems to SaaS tools and
-                modern dashboards.
+                building web apps, mobile apps and Web3 products, from
+                decentralized platforms and DAO governance systems to dashboards
+                and scraping tools.
               </p>
             </FadeBox>
 
@@ -350,10 +354,9 @@ export default function AboutSection() {
               <p className="text-[13px] sm:text-[15px] md:text-[13px] lg:text-[15px] leading-[1.8] sm:leading-[1.9] text-white/55">
                 I specialize in{" "}
                 <span className="text-white/80 font-medium">
-                  Next.js, React, and Node.js
+                  Next.js, React, React Native and Node.js
                 </span>{" "}
-                on the frontend and backend, with hands-on blockchain experience
-                using{" "}
+                , with hands-on blockchain experience on{" "}
                 <span className="text-white/80 font-medium">
                   XPR Network / Proton Blockchain
                 </span>{" "}
@@ -366,16 +369,21 @@ export default function AboutSection() {
             <FadeBox delay="60ms">
               <p className="text-[13px] sm:text-[15px] md:text-[13px] lg:text-[15px] leading-[1.8] sm:leading-[1.9] text-white/55">
                 On Upwork, I hold a{" "}
-                <span className="text-white/80 font-medium">
-                  Top Rated
-                </span>{" "}
+                <span className="text-white/80 font-medium">Top Rated</span>{" "}
                 badge — top 10% of the platform — with a{" "}
                 <span className="text-white/80 font-medium">
                   100% Job Success Score
                 </span>
-                , 1,600+ hours logged, and all 5-star reviews. I take pride in
-                clean, maintainable code and clear communication throughout
-                every project.
+                ,{" "}
+                <span className="text-white/80 font-medium">
+                  1,600+ hours logged
+                </span>
+                , and{" "}
+                <span className="text-white/80 font-medium">
+                  all 5-star reviews
+                </span>
+                . Most of my work has been long-term, including almost two years
+                with one US client.
               </p>
             </FadeBox>
 

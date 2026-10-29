@@ -7,9 +7,9 @@ import { useEffect, useState, type MouseEvent } from "react";
 // ── Animated typing cycle ─────────────────────────────────────────────────────
 const ROLES = [
   "Full-Stack Developer",
-  "Next.js & React Expert",
-  "AI-Powered App Builder",
-  "SaaS Platform Engineer",
+  "Web3 & Blockchain Developer",
+  "Next.js & React Developer",
+  "React Native Developer",
 ];
 
 function useTypingCycle(words: string[], speed = 75, pause = 2000) {
@@ -106,7 +106,7 @@ export default function HeroSection() {
             <h1
               className={`text-[1.5rem] sm:text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] xl:text-[3rem] font-bold leading-[1.15] tracking-tight text-white mb-4 lg:mb-5 ${fadeUp("delay-[0ms]")}`}
             >
-              Full-Stack Developer
+              Full-Stack & Web3 Developer
               <br />
               <span className="text-white/25">&</span>{" "}
               <span className="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
@@ -134,9 +134,9 @@ export default function HeroSection() {
               <span className="text-white/80 font-medium">
                 3+ years of experience
               </span>{" "}
-              building AI-powered web apps, SaaS platforms, and dashboards using{" "}
+              building web apps, mobile apps and blockchain products with{" "}
               <span className="text-white/80 font-medium">
-                Next.js, React, and Node.js
+                Next.js, React, React Native and Node.js
               </span>
               . I handle everything from database to UI.
             </p>

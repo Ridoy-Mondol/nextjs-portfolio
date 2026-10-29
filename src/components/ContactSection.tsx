@@ -212,10 +212,10 @@ export default function ContactSection() {
                 </span>
               </h3>
               <p className="text-[14.5px] leading-[1.85] text-white/45">
-                I&apos;m currently available for freelance contracts and new
-                projects. Whether you need a full-stack web app, a Web3
-                platform, or AI integration — reach out through any of the
-                channels below and I&apos;ll get back to you promptly.
+                I&apos;m open to freelance projects, contracts and full-time
+                remote roles. Whether you need a full-stack app, a Web3 product
+                or a mobile app, reach out through any channel below and
+                I&apos;ll get back to you promptly.
               </p>
             </div>
 
