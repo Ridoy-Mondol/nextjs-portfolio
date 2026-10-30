@@ -466,7 +466,7 @@ export const projects: Project[] = [
     ],
     accentFrom: "#38bdf8",
     accentTo: "#818cf8",
-    thumbnail: "/images/projects/snipverse-mobile/thumbnail.jpeg",
+    thumbnail: "/images/projects/snipverse-mobile/thumbnail.png",
     featureSections: [
       {
         icon: "🚀",
@@ -596,7 +596,7 @@ export const projects: Project[] = [
             text: "Cached scraping results with MongoDB to reduce repeated requests",
           },
         ],
-        image: "/images/projects/qcfinder/details.png",
+        image: "/images/projects/qcfinder/qc-gallery.png",
         imageCaption: "Scraped QC images and product information",
       },
       {

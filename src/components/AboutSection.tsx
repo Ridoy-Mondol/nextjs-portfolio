@@ -263,7 +263,7 @@ export default function AboutSection() {
                   <div className="w-full h-full rounded-full p-[3px] bg-[#080810]">
                     <div className="w-full h-full rounded-full overflow-hidden">
                       <Image
-                        src="/images/linkedin.png"
+                        src="/images/my-img.png"
                         alt="Ahatashamul"
                         width={320}
                         height={320}
